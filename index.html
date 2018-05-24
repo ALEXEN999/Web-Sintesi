@@ -9,39 +9,39 @@
   <link rel="shortcut icon" type="image/ico" href="icon.ico" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="index.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
   <script src="coco.js"></script>
 </head>
 
 <body>
-  <!--PRIMER MENU-->
-  <!--
-  <header>
-    <div id="menu-fixed">
-      <ul>
-        <li><a href="index.html">BLIZZARD</a></li>
-        <li><a href="index.html">GAMES</a></li>
-        <li><a href="index.html">SHOP</a></li>
-        <li><a href="index.html">NEWS</a></li>
-        <li><a href="index.html">ESPORTS</a></li>
-      </ul>
-    </div>
-  </header>
- -->
-  <!--SEGUNDO MENU-->
-      <div class="navbar">
-        <a href="#home">Home</a>
-        <a href="#news">News</a>
-        <div class="dropdown">
-          <button class="dropbtn">Dropdown
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </div>
-      </div>
+
+  <!--MENU-->
+  <div class="topnav" id="myTopnav">
+   <a href="index.html" class="active">Inicio</a>
+   <a href="circuitos.html">Circuitos</a>
+   <div class="dropdown">
+     <button class="dropbtn">Hardware
+       <i class="fa fa-caret-down"></i>
+     </button>
+     <div class="dropdown-content">
+       <a href="#">Link 1</a>
+       <a href="#">Link 2</a>
+     </div>
+   </div>
+   <a href="codigo.html">Código</a>
+   <div class="dropdown">
+     <button class="dropbtn">Software
+       <i class="fa fa-caret-down"></i>
+     </button>
+     <div class="dropdown-content">
+       <a href="#">Link 1</a>
+       <a href="#">Link 2</a>
+     </div>
+   </div>
+   <a href="galeria.html">Galería</a>
+   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+ </div>
         <!--PORTADA DE LA PAGINA-->
         <center>
           <div id="image-over">
@@ -63,21 +63,46 @@
 
     <!--SECCION DE NOTICIAS CON VIDEOS Y BOTON DE VER TODAS LAS NOTICIAS(cmamut2)-->
     <article1>
-      <div id="featured-news">
-        <div id="featured-text">
-          FEATURED TEXT
-        </div>
-        <div class="featured-video1">
-          <iframe width="325" height="175" src="https://www.youtube.com/embed/K_m8fcJb5tE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> </div>
-        <div class="featured-video2">
-          <img width="325" height="175" src="http://bnetcmsus-a.akamaihd.net/cms/content_entry_media/uv/UVZYBP1G703H1519761019887.jpg"></div>
-        </img>
-        <div class="featured-video3">
-          <iframe width="325" height="175" src="https://www.youtube.com/embed/etOQTRKamqM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> </div>
-        <div id="view-all-news">
-          <center><a href="#" class="button-cmamut button-cmamut-blue">VIEW ALL NEWS</a></center>
-        </div>
-      </div>
+      <div class="contenedor">
+    		<div class="contenedor_tarjeta">
+    			<a href="http://www.falconmasters.com">
+    				<figure id="tarjeta">
+    					<img src="img/batman.jpg" class="frontal" alt="">
+    					<figcaption class="trasera">
+    						<h2 class="titulo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, vero!</h2>
+    						<hr>
+    						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
+    					</figcaption>
+    				</figure>
+    			</a>
+    		</div>
+
+    		<div class="contenedor_tarjeta">
+    			<a href="http://www.falconmasters.com">
+    				<figure id="tarjeta">
+    					<img src="img/superman.jpg" class="frontal" alt="">
+    					<figcaption class="trasera">
+    						<h2 class="titulo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, vero!</h2>
+    						<hr>
+    						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
+    					</figcaption>
+    				</figure>
+    			</a>
+    		</div>
+
+    		<div class="contenedor_tarjeta">
+    			<a href="http://www.falconmasters.com">
+    				<figure id="tarjeta">
+    					<img src="img/flash.png" class="frontal" alt="">
+    					<figcaption class="trasera">
+    						<h2 class="titulo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, vero!</h2>
+    						<hr>
+    						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
+    					</figcaption>
+    				</figure>
+    			</a>
+    		</div>
+    	</div>
     </article1>
 
     <!--UN TEXTO CON VARIOS PARAGRAFOS Y EL BOTON EXPLORE GAME(clase cmamut)-->
@@ -274,10 +299,10 @@
         <!-- ESTILOS EN HTML SOCIAL MEDIA)-->
         <div id="stay-conected">STAY CONECTED
           <p> </p>
-          <a href="#" class="fa fa-facebook"></a>
-          <a href="#" class="fa fa-youtube"></a>
-          <a href="#" class="fa fa-instagram"></a>
-          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fal fa fa-facebook"></a>
+          <a href="#" class="fal fa fa-youtube"></a>
+          <a href="#" class="fal fa fa-instagram"></a>
+          <a href="#" class="fal fa fa-twitter"></a>
         </div>
 
 </body>
