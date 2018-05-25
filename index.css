@@ -24,7 +24,13 @@ text-align: center;
 padding: 1%;
 }
 /*---------------------------------------------------------*/
-
+.wallpaper {
+  background-image: url("https://wallpapercave.com/wp/wp2163572.jpg");
+  width: 100%;
+  height: 57em;
+  border-bottom: solid;
+  border-color: #b51515;
+}
 /*-------------------------ARTICULO 2-----------------------*/
 #featured-news {
  border: 1px solid black;
@@ -140,7 +146,7 @@ padding: 1%;
 /*------------------------ MENU 1------------------------- */
 /* Add a black background color to the top navigation */
 .topnav {
-   background-color: #333;
+   background-color: #111111;
    overflow: hidden;
 }
 
@@ -157,7 +163,7 @@ padding: 1%;
 
 /* Add an active class to highlight the current page */
 .active {
-   background-color: #4CAF50;
+   background-color: #b51515;
    color: white;
 }
 
@@ -567,6 +573,8 @@ color: white;
 background: #CA2E93;
 color: white;
 }
+
+
 
 /**/
   /*ME FALTA PONER LOS ARTICULOS AIUDAAAAAAAAAAAAAAAAAA*/
