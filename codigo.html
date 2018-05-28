@@ -42,268 +42,123 @@
    <a href="galeria.html">Galería</a>
    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
  </div>
-        <!--PORTADA DE LA PAGINA-->
-        <center>
-          <div id="image-over">
-            <div><img class="logo" src="https://lh5.ggpht.com/rJIAxhJn_0hpdAdrcxbWisrKde7gIjqE_D9jPGMhLNPTe8TJY9C6rOIh-GtjS_ialll9=w300" />
-              <div class="clearfix"></div>
+<div id="content">        <!--PORTADA DE LA PAGINA-->
+        <div class="wallpaper-code">
+          <h1>Códigos</h1>
+            <h3>bluetooth</h3>
+            <div class="code">
+              <ol>
+
+              <li class="comment">//#include "SoftwareSerial.h"</li>
+
+              <li class="comment">//SoftwareSerial BTserial(10,11); // RX | TX</li>
+
+              <li class="comment">// Connect the HC-06 TX to the Arduino RX on pin 2.</li>
+
+              <li class="comment">// Connect the HC-06 RX to the Arduino TX on pin 3 through a voltage divider.</li>
+              <li class="comment">//</li>
+
+              <li> </li>
+
+              <li> </li>
+
+              <li><span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>setup</b></span>()</li>
+              <li>{</li>
+
+              <li>&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(13, <span style="color: #006699;">OUTPUT</span>);</li>
+
+              <li> </li>
+
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">begin</span>(9600);</li>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"Enter AT commands:"</span>);</li>
+
+              <li> </li>
+
+              <li class="comment">    // HC-06 default serial speed is 9600</li>
+
+              <li class="comment">//    BTserial.begin(9600); </li>
+              <li>    Serial1.begin(9600);</li>
+
+              <li>}</li>
+
+              <li> char led;  // Led es nuestro led conectado a Arduino</li>
+              <li> </li>
+
+              <li>void loop()</li>
+              <li>{</li>
+              <li> </li>
+
+              <li class="comment">    // Keep reading from HC-06 and send to Arduino Serial Monitor</li>
+
+              <li class="comment">  //  if (BTserial.available())</li>
+
+              <li>    if (Serial1.available())</li>
+              <li>    {</li>
+
+              <li>       {</li>
+
+              <li> led=(Serial.read());</li>
+
+              <li> if (led=='a')</li>
+              <li> {</li>
+
+              <li> digitalWrite(13, HIGH);</li>
+
+              <li> Serial.println("LED on");</li>
+
+              <li> }</li>
+              <li> if (led=='b')</li>
+
+              <li class="comment"> // Siclo if para definir que se acción se ejecutara si Arduino recibe el dato "b" (si lo recibe el led se apaga)</li>
+
+              <li> {</li>
+
+              <li> digitalWrite(13, LOW);</li>
+              <li> }</li>
+
+              <li> }</li>
+
+              <li class="comment">//      Serial.write(BTserial.read());</li>
+
+              <li>Serial.write(Serial1.read());</li>
+              <li>    }</li>
+              <li> </li>
+
+              <li class="comment">    // Keep reading from Arduino Serial Monitor and send to HC-06</li>
+
+              <li>    if (Serial.available())</li>
+
+              <li>    {</li>
+              <li class="comment">//        BTserial.write(Serial.read());</li>
+
+              <li>Serial1.write(Serial.read());</li>
+
+              <li>    }</li>
+              <li>    {</li>
+
+              <li class="comment">//}</li>
+
+
+
+              </ol>
+
             </div>
-            <div class="heroe-text">
-              DOMOTIC HOUSE
-            </div>
+            <h3>bluetooth</h3>
+            <div class="code"></div>
+            <h3>bluetooth</h3>
+            <div class="code"></div>
+            <h3>bluetooth</h3>
+            <div class="code"></div>
+            <h3>bluetooth</h3>
+            <div class="code"></div>
+
             <div class="clearfix"></div>
           </div>
-        </center>
 
         <!--Botones de BUY NOW Y WATCH TRAILER(clases cmamut y cmamut3)-->
 
-        <div id="watch-trailer">
-          <center><a href="#" class="button-cmamut button-cmamut-white">VIDEO DE PRUEBA</a></center>
-        </div>
 
-    <!--SECCION DE NOTICIAS CON VIDEOS Y BOTON DE VER TODAS LAS NOTICIAS(cmamut2)-->
-    <article1>
-      <div class="contenedor">
-    		<div class="contenedor_tarjeta">
-    			<a href="http://www.falconmasters.com">
-    				<figure id="tarjeta">
-    					<img src="img/batman.jpg" class="frontal" alt="">
-    					<figcaption class="trasera">
-    						<h2 class="titulo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, vero!</h2>
-    						<hr>
-    						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
-    					</figcaption>
-    				</figure>
-    			</a>
-    		</div>
-
-    		<div class="contenedor_tarjeta">
-    			<a href="http://www.falconmasters.com">
-    				<figure id="tarjeta">
-    					<img src="img/superman.jpg" class="frontal" alt="">
-    					<figcaption class="trasera">
-    						<h2 class="titulo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, vero!</h2>
-    						<hr>
-    						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
-    					</figcaption>
-    				</figure>
-    			</a>
-    		</div>
-
-    		<div class="contenedor_tarjeta">
-    			<a href="http://www.falconmasters.com">
-    				<figure id="tarjeta">
-    					<img src="img/flash.png" class="frontal" alt="">
-    					<figcaption class="trasera">
-    						<h2 class="titulo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, vero!</h2>
-    						<hr>
-    						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
-    					</figcaption>
-    				</figure>
-    			</a>
-    		</div>
-    	</div>
-    </article1>
-
-    <!--UN TEXTO CON VARIOS PARAGRAFOS Y EL BOTON EXPLORE GAME(clase cmamut)-->
-    <article2>
-      <div id="fight-future">
-        <div id="fight-title">
-          FIGHT FOR THE FUTURE
-        </div>
-        <div id="fight-text">
-          <p1>Soldiers. Scientists.</p1>
-          <p> </p>
-          <p2>In a time of global crisis, an international task force of heroes banded together to restore peace to a war-torn world: OVERWATCH.</p2>
-          <p> </p>
-          <p3>Overwatch ended the crisis, and helped maintain peace in the decades that followed, inspiring an era of exploration, innovation, and discovery. But, after many years, Overwatch’s influence waned, and it was eventually disbanded.</p3>
-          <p> </p>
-          <p4>Now, conflict is rising across the world again, and the call has gone out to heroes old and new. Are you with us?</p4>
-          <p> </p>
-        </div>
-        <div id="explore-game">
-          <center><a href="#" class="button-cmamut button-cmamut-orange">EXPLORE THE GAME</a></center>
-        </div>
-      </div>
-    </article2>
-
-    <!--SELECTOR DE CADA JUGADOR-->
-    <article3>
-      <div id="heroe-selector">
-        <div id="need-heroes">
-          THE WORLD NEEDS HEROES
-        </div>
-        <div id="text-heroes">
-          Choose your hero and clash on the battle fields of tomorrow. Bend time, defy physics, and wield extraordinary powers in the ultimate team-based shooter.</div>
-
-        <center>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/ana.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/bastion.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/doomfist.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/dva.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/genji.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/hanzo.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/junkrat.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/lucio.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/mccree.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/mei.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/mercy.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/moira.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/orisa.png"></center>
-            </a>
-          </div>
-          <div class="line1">
-            <a href="#">
-              <center><img src="icon-portrait/pharah.png"></center>
-            </a>
-          </div>
-        </center>
-        <center>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/reaper.png"></center>
-            </a>
-          </div>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/reinhardt.png"></center>
-            </a>
-          </div>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/roadhog.png"></center>
-            </a>
-          </div>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/soldier-76.png"></center>
-            </a>
-          </div>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/sombra.png"></center>
-            </a>
-          </div>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/symmetra.png"></center>
-            </a>
-          </div>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/torbjorn.png"></center>
-            </a>
-          </div>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/tracer.png"></center>
-            </a>
-          </div>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/widowmaker.png"></center>
-            </a>
-          </div>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/winston.png"></center>
-            </a>
-          </div>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/zarya.png"></center>
-            </a>
-          </div>
-          <div class="line2">
-            <a href="#">
-              <center><img src="icon-portrait/zenyatta.png"></center>
-            </a>
-          </div>
-        </center>
-      </div>
-    </article3>
-
-    <!--EFECTO PARALLAX PARA UNA IMAGEN-->
-    <article4>
-      <div class="parallax"></div>
-    </article4>
-
-    <!--FOOTER-->
-    <footer>
-      <div id="begin-watch">
-        <div id="begin-image">
-          <img src="widowgrande.png">
-        </div>
-        <div id="begin-title">Begin Your Watch</div>
-        <div id="begin-text">Clash on the battlefields of tomorrow in the ultimate team-based shooter.</div>
-        <div id="begin-cmamut">
-          <a class="cmamutespecial" href="#">BUY NOW</a>
-        </div>
-        <div id="begin-image2">
-          <img src="https://d3hmvhl7ru3t12.cloudfront.net/img/pages/home/box-art/overwatch-boxart-pc-a695eeaa8391d3295cc24bd272a48cb9c6a01e70152195976183525c306581bdb48523343d592b5335b6377c8869a0e123b41a05a0fe520d6627e1404834c459.png">
-        </div>
-        <div class="clearfix"></div>
-      </div>
-      <footer>
-
-        <!-- ESTILOS EN HTML SOCIAL MEDIA)-->
-        <div id="stay-conected">STAY CONECTED
-          <p> </p>
-          <a href="#" class="fal fa fa-facebook"></a>
-          <a href="#" class="fal fa fa-youtube"></a>
-          <a href="#" class="fal fa fa-instagram"></a>
-          <a href="#" class="fal fa fa-twitter"></a>
-        </div>
+</div>
 
 </body>
 
