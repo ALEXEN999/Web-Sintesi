@@ -92,13 +92,15 @@ padding: 1%;
 
  /*-------------------------ARTICULO 2-----------------------*/
 #fight-future {
-  border: 1px solid black;
  background-image: url("https://d3hmvhl7ru3t12.cloudfront.net/img/pages/home/fight-for-the-future/london-2560-315e74f8af81f11bfa7c4e175712246b104203b24e9a360540ff407c5fb4d48fb039f2e4ded78a803b57ba5ba84a9c974c24a322950a0f106d4457554418cfb8.jpg");
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
  position: relative;
  color: white;
+ border-top: solid;
+ border-bottom: solid;
+ border-color: #b51515;
 }
 #fight-title {
  text-align: center;
@@ -342,6 +344,8 @@ text-align: center;
  background-color: #ffb033;
  color: #fefefe;
  display: inline-block;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 /*BOTON DE VIEW ALL NEWS*/
@@ -525,7 +529,7 @@ footer {}
 /*--------------EFECTO PARALLAX---------------*/
   .parallax {
    /* The image used */
-   background-image: url("https://d3hmvhl7ru3t12.cloudfront.net/img/pages/home/dorado-desktop-2cfea7233598311850e3f484a91e1d48df48496ff062b0b639595bfa217c0ce1129464b6b3e3107c165b24e99a794aa181244d4b440507e9e02a5abba3f08583.jpg");
+   background-image: url("img/parallax.JPG");
    /* Set a specific height */
    min-height: 500px;
    /* Create the parallax scrolling effect */
@@ -648,7 +652,13 @@ display: inline-table;
 clear: both;
 }
 
+.img-arduino {
+  margin: 4em;
+}
 
+.img-fri{
+  margin: 3em;
+}
 /**/
   /*ME FALTA PONER LOS ARTICULOS AIUDAAAAAAAAAAAAAAAAAA*/
 /**/
