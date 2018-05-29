@@ -1,3 +1,5 @@
+* { box-sizing: border-box;}
+
 body {margin:0px;}
 .clearfix { clear: both;}
 
@@ -328,13 +330,18 @@ text-decoration: none; /*Quitar el subrayado*/
 /*outline: none;*/
 background-color: #00a5e2;
 color: #fefefe;
+margin-top: 5em;
+display: run-in;
+text-align: center;
+
 }
 
 /*BOTON DE BUY NOW*/
 .button-cmamut-orange {
- width: 50px;
+ width: 15em;
  background-color: #ffb033;
  color: #fefefe;
+ display: inline-block;
 }
 
 /*BOTON DE VIEW ALL NEWS*/
@@ -602,6 +609,46 @@ ol {
 .color-orange {
 color: #CC6600;
 }
+
+.columnas {
+  float: left;
+  width: 33.3333333%;
+  padding: 1em;
+}
+
+.tarjeta {
+  padding: 1em;
+  margin-top: 2.5em;
+  margin-bottom: 2em;
+  background-color: white;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title-soft{
+text-align: center;
+}
+
+.img-soft{
+    width: 35%;
+}
+
+.txt-soft {
+  color: black;
+  text-align: left;
+}
+
+.tarjeta {
+  text-align: center;
+}
+
+.tarjeta::after {
+content: " ";
+display: inline-table;
+clear: both;
+}
+
+
 /**/
   /*ME FALTA PONER LOS ARTICULOS AIUDAAAAAAAAAAAAAAAAAA*/
 /**/

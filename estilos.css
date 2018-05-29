@@ -7,8 +7,9 @@
 }
 
 body {
-	background: #F0F2F1;
+	background: #111111;
 	font-family: 'Open Sans', sans-serif;
+
 }
 
 a {
@@ -22,6 +23,7 @@ a {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
+	background-color: #111111;
 }
 
 .contenedor_tarjeta {
@@ -139,7 +141,7 @@ figure .trasera p {
 	font-size: 14px;
 }
 
-@media screen and (max-width: 992px) { 
+@media screen and (max-width: 992px) {
 	figure .trasera {
 		/*position: relative;*/
 		backface-visibility:visible;
@@ -147,7 +149,7 @@ figure .trasera p {
 	}
 
 	.contenedor_tarjeta:hover figure {
-		transform: perspective(600px) rotateY(0deg);	
+		transform: perspective(600px) rotateY(0deg);
 	}
 
 }
