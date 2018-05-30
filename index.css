@@ -92,13 +92,12 @@ padding: 1%;
 
  /*-------------------------ARTICULO 2-----------------------*/
 #fight-future {
- background-image: url("https://d3hmvhl7ru3t12.cloudfront.net/img/pages/home/fight-for-the-future/london-2560-315e74f8af81f11bfa7c4e175712246b104203b24e9a360540ff407c5fb4d48fb039f2e4ded78a803b57ba5ba84a9c974c24a322950a0f106d4457554418cfb8.jpg");
+ background-image: url("img/fondo.png");
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
  position: relative;
  color: white;
- border-top: solid;
  border-bottom: solid;
  border-color: #b51515;
 }
@@ -460,7 +459,11 @@ background-color: #405275;
 /*-----------------FOOTER----------------------*/
 footer {}
 #begin-watch {
-  background-image: url(https://d3hmvhl7ru3t12.cloudfront.net/img/bg-museum-2fe485c6cfa12dd07ebae267c34de56e6e504a3ded661dab4da27892f6639f6407c66bf577bede8448500eedd9ab620b0a899683f50da3a4849e3038312aded4.jpg);
+  background-image: url("img/wallpaper.jpg");
+  border-top: solid;
+  border-color: #b51515;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 #begin-image {
  float: left;
@@ -471,7 +474,6 @@ footer {}
 #begin-title {
  float: right;
  margin-right: 22%;
- margin-top: 3%;
  text-align: center;
  width: 20%;
  padding: 1%;
@@ -481,7 +483,7 @@ footer {}
 #begin-text {
  float: right;
  margin-right: 22%;
- margin-top: 1%;
+ margin-top: 4%;
  text-align: center;
  width: 20%;
  padding: 1%;
@@ -585,23 +587,13 @@ background: #CA2E93;
 color: white;
 }
 
-.wallpaper-code {
-  background-color: lightgrey;
-  width: 100%;
-  height: 57em;
-  border-left: solid;
-  border-right: solid;
-  border-color: #b51515;
-}
 
 #content {
   margin-left: 15%;
   margin-right: 15%;
 }
 
-.code {
-  border: solid
-}
+
 
 ol {
   margin-left: 3%;
