@@ -29,9 +29,10 @@ padding: 1%;
 .wallpaper {
   background-image: url("https://wallpapercave.com/wp/wp2163572.jpg");
   width: 100%;
-  height: 57em;
   border-bottom: solid;
   border-color: #b51515;
+  background-repeat: no-repeat;
+  max-width: 100%;
 }
 /*-------------------------ARTICULO 2-----------------------*/
 #featured-news {

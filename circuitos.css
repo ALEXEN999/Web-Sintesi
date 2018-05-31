@@ -16,21 +16,20 @@ img {
   max-width: 100%;
   width: 50%;
 }
-body {
-  background-image: url("https://i.pinimg.com/originals/f9/eb/e3/f9ebe3d0c53d895e3f4076d71ff0a78b.jpg") !important;
-  background-repeat: no-repeat !important;
-  background-size: 100% !important;
-}
+
 
 .circuit{
   background-color: white;
   text-align: center;
-  margin-left: 10em;
-  margin-right: 10em;
+  margin-left: 20em;
+  margin-right: 20em;
   margin-top: 2em;
-
+  border: solid;
+  border-style: ridge;
 }
-
+ .imagen-circuito{
+   padding: 1em;
+ }
 .descarga-fzz{
   clear: both;
   display: inline-block;
