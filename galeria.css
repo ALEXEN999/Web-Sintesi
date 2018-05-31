@@ -1,0 +1,15 @@
+/* * {
+  border:solid;
+} */
+.titulo {
+  text-align: center;
+  padding: 1em;
+}
+
+img {
+  max-width: 24% !important;
+}
+
+.fila1{
+  margin-top: 1em;
+}
