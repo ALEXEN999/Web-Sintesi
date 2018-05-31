@@ -17,16 +17,35 @@
   <script src="coco.js"></script>
 </head>
 
-<body id="codigo-page">
+<body>
 
   <!--MENU-->
-  <div w3-include-html="menu.html"></div>
+  <div class="topnav" id="myTopnav">
+    <a href="index.html">Inicio</a>
+    <a href="circuitos.html">Circuitos</a>
+    <div class="dropdown">
+      <button class="dropbtn">Hardware
+       <i class="fa fa-caret-down"></i>
+     </button>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+      </div>
+    </div>
+    <a href="codigo.html" class="active">Código</a>
+    <div class="dropdown">
+      <button class="dropbtn">Software
+       <i class="fa fa-caret-down"></i>
+     </button>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+      </div>
+    </div>
+    <a href="galeria.html">Galería</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
 
-  <script>
-    $(function() {
-      $("#codigo-lnk").addClass("active");
-    });
-  </script>
 
   <div id="content">
     <!--PORTADA DE LA PAGINA-->

@@ -15,15 +15,34 @@
   <link rel="stylesheet" href="estilos.css">
 </head>
 
-<body id="circuits-page">
+<body>
 
-  <!-- MENU -->
-  <div w3-include-html="menu.html"></div>
-
-  <script>
-  $(function(){ $("#circuits-lnk").addClass("active"); });
-  </script>
-
+  <!--MENU-->
+  <div class="topnav" id="myTopnav">
+    <a href="index.html">Inicio</a>
+    <a href="circuitos.html" class="active">Circuitos</a>
+    <div class="dropdown">
+      <button class="dropbtn">Hardware
+       <i class="fa fa-caret-down"></i>
+     </button>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+      </div>
+    </div>
+    <a href="codigo.html">Código</a>
+    <div class="dropdown">
+      <button class="dropbtn">Software
+       <i class="fa fa-caret-down"></i>
+     </button>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+      </div>
+    </div>
+    <a href="galeria.html">Galería</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
  <div class="contenido">
    <div class="titulo">
      <h1>Circuitos</h1>
