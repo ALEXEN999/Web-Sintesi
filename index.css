@@ -152,6 +152,8 @@ padding: 1%;
 .topnav {
    background-color: #111111;
    overflow: hidden;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 /* Style the links inside the navigation bar */
@@ -167,7 +169,7 @@ padding: 1%;
 
 /* Add an active class to highlight the current page */
 .active {
-   background-color: #b51515;
+   background-color: #b51515 !important;
    color: white;
 }
 
@@ -652,6 +654,10 @@ clear: both;
 
 .img-fri{
   margin: 3em;
+}
+
+.button-prueba {
+  margin-left: 2em !important;
 }
 /**/
   /*ME FALTA PONER LOS ARTICULOS AIUDAAAAAAAAAAAAAAAAAA*/
