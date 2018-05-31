@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>OVERWATCHO</title>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
   <script src="coco.js"></script>
   <link rel="shortcut icon" type="image/ico" href="icon.ico" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,41 +17,25 @@
   <script src="coco.js"></script>
 </head>
 
-<body>
+<body id="codigo-page">
 
   <!--MENU-->
-  <div class="topnav" id="myTopnav">
-   <a href="index.html">Inicio</a>
-   <a href="circuitos.html">Circuitos</a>
-   <div class="dropdown">
-     <button class="dropbtn">Hardware
-       <i class="fa fa-caret-down"></i>
-     </button>
-     <div class="dropdown-content">
-       <a href="#">Link 1</a>
-       <a href="#">Link 2</a>
-     </div>
-   </div>
-   <a href="codigo.html" class="active">Código</a>
-   <div class="dropdown">
-     <button class="dropbtn">Software
-       <i class="fa fa-caret-down"></i>
-     </button>
-     <div class="dropdown-content">
-       <a href="#">Link 1</a>
-       <a href="#">Link 2</a>
-     </div>
-   </div>
-   <a href="galeria.html">Galería</a>
-   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
- </div>
-<div id="content">        <!--PORTADA DE LA PAGINA-->
-          <div id="title">
-          <h1>Códigos</h1>
-        </div>
-        <div class="wallpaper-code">
+  <div w3-include-html="menu.html"></div>
 
-            <h2>Bluetooth</h3>
+  <script>
+    $(function() {
+      $("#codigo-lnk").addClass("active");
+    });
+  </script>
+
+  <div id="content">
+    <!--PORTADA DE LA PAGINA-->
+    <div id="title">
+      <h1>Códigos</h1>
+    </div>
+    <div class="wallpaper-code">
+
+      <h2>Bluetooth</h3>
             <div class="code">
               <ol>
 
@@ -395,5 +380,8 @@
 </div>
 
 </body>
+<script>
+	w3.includeHTML();
+</script>
 
 </html>

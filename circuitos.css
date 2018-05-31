@@ -1,8 +1,9 @@
-/* * {
+ /** {
   border: solid;
-} */
+}*/
+
 .contenido {
-  margin:5em;
+  margin: 5em;
 }
 
 .titulo {
@@ -11,4 +12,40 @@
   color: white;
 }
 
-.
+img {
+  max-width: 100%;
+  width: 50%;
+}
+body {
+  background-image: url("https://i.pinimg.com/originals/f9/eb/e3/f9ebe3d0c53d895e3f4076d71ff0a78b.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% !important;
+}
+
+.circuit{
+  background-color: white;
+  text-align: center;
+  margin-left: 10em;
+  margin-right: 10em;
+  margin-top: 2em;
+
+}
+
+.descarga-fzz{
+  clear: both;
+  display: inline-block;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.download{
+  background-color: #b51515;
+  text-decoration: none;
+  color: white;
+  padding: 0.4em;
+  border-radius: 0.1em;
+}
+
+.download:hover {
+background-color: #961212;
+}

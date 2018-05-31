@@ -6,43 +6,23 @@
   <title>OVERWATCHO</title>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="coco.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
   <link rel="shortcut icon" type="image/ico" href="icon.ico" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="index.css">
   <link rel="stylesheet" type="text/css" href="circuitos.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
   <link rel="stylesheet" href="estilos.css">
-  <script src="coco.js"></script>
 </head>
 
-<body>
+<body id="circuits-page">
 
-  <!--MENU-->
-  <div class="topnav" id="myTopnav">
-   <a href="index.html">Inicio</a>
-   <a href="circuitos.html" class="active">Circuitos</a>
-   <div class="dropdown">
-     <button class="dropbtn">Hardware
-       <i class="fa fa-caret-down"></i>
-     </button>
-     <div class="dropdown-content">
-       <a href="#">Link 1</a>
-       <a href="#">Link 2</a>
-     </div>
-   </div>
-   <a href="codigo.html">Código</a>
-   <div class="dropdown">
-     <button class="dropbtn">Software
-       <i class="fa fa-caret-down"></i>
-     </button>
-     <div class="dropdown-content">
-       <a href="#">Link 1</a>
-       <a href="#">Link 2</a>
-     </div>
-   </div>
-   <a href="galeria.html">Galería</a>
-   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
- </div>
+  <!-- MENU -->
+  <div w3-include-html="menu.html"></div>
+
+  <script>
+  $(function(){ $("#circuits-lnk").addClass("active"); });
+  </script>
 
  <div class="contenido">
    <div class="titulo">
@@ -53,6 +33,16 @@
        <img src="img/blue_bb.png" alt="circuito de Bluetooth">
      </div>
      <div class="descarga-fzz">
+       <a class="download" href="https://drive.google.com/open?id=1eDp2meCzrnw4HFgomvYaUkYCOyujkmRb">Descargar Proyecto Bluetooth</a>
+     </div>
+   </div>
+
+   <div class="circuit">
+     <div class="imagen-circuito">
+       <img src="img/LucesHabitaciones_bb.png" alt="">
+     </div>
+     <div class="descarga-fzz">
+       <a class="download" href="https://drive.google.com/open?id=1jkFZiG59sLaBB_noUNkrbiztjq_YOXJg">Descargar Proyecto Luces</a>
 
      </div>
    </div>
@@ -62,6 +52,7 @@
        <img src="img/" alt="">
      </div>
      <div class="descarga-fzz">
+       <a class="download" href="https://drive.google.com/open?id=1eDp2meCzrnw4HFgomvYaUkYCOyujkmRb">Descargar Bluetooth.fzz</a>
 
      </div>
    </div>
@@ -71,6 +62,7 @@
        <img src="img/" alt="">
      </div>
      <div class="descarga-fzz">
+       <a class="download" href="https://drive.google.com/open?id=1eDp2meCzrnw4HFgomvYaUkYCOyujkmRb">Descargar Bluetooth.fzz</a>
 
      </div>
    </div>
@@ -80,15 +72,7 @@
        <img src="img/" alt="">
      </div>
      <div class="descarga-fzz">
-
-     </div>
-   </div>
-
-   <div class="circuit">
-     <div class="imagen-circuito">
-       <img src="img/" alt="">
-     </div>
-     <div class="descarga-fzz">
+       <a class="download" href="https://drive.google.com/open?id=1eDp2meCzrnw4HFgomvYaUkYCOyujkmRb">Descargar Bluetooth.fzz</a>
 
      </div>
    </div>
@@ -96,5 +80,9 @@
  </div>
 
 </body>
+
+<script>
+ w3.includeHTML();
+</script>
 
 </html>

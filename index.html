@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>OVERWATCHO</title>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
   <script src="coco.js"></script>
   <link rel="shortcut icon" type="image/ico" href="icon.ico" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,166 +15,157 @@
   <script src="coco.js"></script>
 </head>
 
-<body>
+<body id="index-page">
 
-  <!--MENU-->
-  <div class="topnav" id="myTopnav">
-   <a href="index.html" class="active">Inicio</a>
-   <a href="circuitos.html">Circuitos</a>
-   <div class="dropdown">
-     <button class="dropbtn">Hardware
-       <i class="fa fa-caret-down"></i>
-     </button>
-     <div class="dropdown-content">
-       <a href="#">Link 1</a>
-       <a href="#">Link 2</a>
-     </div>
-   </div>
-   <a href="codigo.html">Código</a>
-   <div class="dropdown">
-     <button class="dropbtn">Software
-       <i class="fa fa-caret-down"></i>
-     </button>
-     <div class="dropdown-content">
-       <a href="#">Link 1</a>
-       <a href="#">Link 2</a>
-     </div>
-   </div>
-   <a href="galeria.html">Galería</a>
-   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
- </div>
-        <!--PORTADA DE LA PAGINA-->
-        <div class="wallpaper">
-        <center>
-          <div id="image-over">
-            <div><img class="logo" src="https://lh5.ggpht.com/rJIAxhJn_0hpdAdrcxbWisrKde7gIjqE_D9jPGMhLNPTe8TJY9C6rOIh-GtjS_ialll9=w300" />
-              <div class="clearfix"></div>
-            </div>
-            <div class="heroe-text">
-              Casa Segura
-            </div>
-            <div class="clearfix"></div>
-          </div>
-        </center>
+  <div w3-include-html="menu.html"></div>
 
-        <!--Botones de BUY NOW Y WATCH TRAILER(clases cmamut y cmamut3)-->
+  <script>
+    $(function() {
+      $("#index-lnk").addClass("active");
+    });
+  </script>
 
-        <div id="watch-trailer">
-          <center><a href="#" class="button-cmamut button-cmamut-white">VIDEO DE PRUEBA</a></center>
+  <!--PORTADA DE LA PAGINA-->
+  <div class="wallpaper">
+    <center>
+      <div id="image-over">
+        <div><img class="logo" src="https://lh5.ggpht.com/rJIAxhJn_0hpdAdrcxbWisrKde7gIjqE_D9jPGMhLNPTe8TJY9C6rOIh-GtjS_ialll9=w300" />
+          <div class="clearfix"></div>
         </div>
-</div>
-    <!--SECCION DE NOTICIAS CON VIDEOS Y BOTON DE VER TODAS LAS NOTICIAS(cmamut2)-->
-    <article1>
-      <div class="contenedor">
-    		<div class="contenedor_tarjeta">
-    			<a href="https://www.amazon.com/Pass-Through-Communication-Compatible-Atomic-Market/dp/B00TNOO438">
-    				<figure class="tarjetas">
-    					<img src="https://images-na.ssl-images-amazon.com/images/I/61RwNwc8P9L._SL1000_.jpg" class="frontal" alt="">
-    					<figcaption class="trasera">
-    						<h2 class="titulo">Modulo Bluetooth HC-06</h2>
-    						<hr>
-    						<p>El HC-06 es un módulo Bluetooth muy usado debido a lo versátil y económico que resulta. Tiene un led incorporado que indica el estado de la conexión y si está emparejado o no en función de la velocidad del parpadeo.</p>
-    					</figcaption>
-    				</figure>
-    			</a>
-    		</div>
-
-    		<div class="contenedor_tarjeta">
-    			<a href="https://www.amazon.es/Tenflyer-HC-SR501-Infrarot-Bewegungsmelder-piroel%C3%83%C2%A9ctrico/dp/B016KCSUK8/ref=sr_1_10?ie=UTF8&qid=1527581385&sr=8-10&keywords=pir+sensor">
-    				<figure class="tarjetas">
-    					<img src="https://images-na.ssl-images-amazon.com/images/I/41axLm8NcqL.jpg" class="frontal" alt="">
-    					<figcaption class="trasera">
-    						<h2 class="titulo">PIR Motion Sensor</h2>
-    						<hr>
-    						<p>Los sensores infrarrojos pasivos (PIR) son dispositivos para la detección de movimiento. Son baratos, pequeños, de baja potencia, y fáciles de usar.</p>
-    					</figcaption>
-    				</figure>
-    			</a>
-    		</div>
-
-    		<div class="contenedor_tarjeta">
-    			<a href="https://www.youtube.com/watch?v=l450fwLvy1k&t=1s">
-    				<figure class="tarjetas">
-    					<img src="https://images-na.ssl-images-amazon.com/images/I/51EaDiaiQZL._SL1024_.jpg" class="frontal" alt="">
-    					<figcaption class="trasera">
-    						<h2 class="titulo">LCD Display de 16×2</h2>
-    						<hr>
-    						<p>La pantalla LCD de 16×2 es un periférico muy común, que se utiliza ampliamente en proyectos con arduino y microcontroladores en general</p>
-    					</figcaption>
-    				</figure>
-    			</a>
-    		</div>
-    	</div>
-    </article1>
-
-    <!--UN TEXTO CON VARIOS PARAGRAFOS Y EL BOTON EXPLORE GAME(clase cmamut)-->
-
-      <div id="fight-future">
-        <div class="columnas">
-          <div class="tarjeta">
-              <div class="title-soft">
-                <img class="img-soft" src="http://www.techsofcolor.org/img/app-inventor-logo-200x200.png" alt="">
-              </div>
-              <p class="txt-soft">App Inventor es un entorno de desarrollo de software creado por Google Labs para la elaboración de aplicaciones destinadas al sistema operativo Android. El usuario puede, de forma visual y a partir de un conjunto de herramientas básicas, ir enlazando una serie de bloques para crear la aplicación. El sistema es gratuito y se puede descargar fácilmente de la web. Las aplicaciones creadas con App Inventor están limitadas por su simplicidad, aunque permiten cubrir un gran número de necesidades básicas en un dispositivo móvil.</p>
-              <a href="http://ai2.appinventor.mit.edu/" class="button-tarjeta button-cmamut button-cmamut-orange">Más información</a>
-            </div>
+        <div class="heroe-text">
+          Casa Segura
         </div>
-        <div class="columnas">
-          <div class="tarjeta">
-            <div class="title-soft">
-              <img class="img-soft img-arduino" src="http://www.ticarte.com/sites/su/styles/max/public/users/380/teaser/arduino-logosvg.png?itok=lK5hbksi" alt="">
-            </div>
-            <p class="txt-soft">Arduino IDE es un entorno de desarrollo y en él se realiza la programación de cada una de las placas de Arduino. Tiene como base el entorno de Processing al igual que un lenguaje de programación fundamentado en Wiring. Pero antes de entrar a hablar de IDE es esencial que tengas claro que es Arduino.</p>
-            <a href="https://www.arduino.cc/en/Main/OldSoftwareReleases" class="button-tarjeta button-cmamut button-cmamut-orange">Más información</a>
-          </div>
-        </div>
-        <div class="columnas">
-          <div class="tarjeta">
-            <div class="title-soft">
-              <img class="img-soft img-fri" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Fritzing_logo_%28new%29.png" alt="">
-            </div>
-            <p class="txt-soft">Fritzing es un programa libre de automatización de diseño electrónico que busca ayudar a diseñadores y artistas para que puedan pasar de prototipos (usando, por ejemplo, placas de pruebas) a productos finales.
-Fritzing fue creado bajo los principios de Processing y Arduino, y permite a los diseñadores, artistas, investigadores y aficionados documentar sus prototipos basados en Arduino y crear esquemas de circuitos impresos para su posterior fabricación. Además, cuenta con un sitio web complementario que ayuda a compartir y discutir bosquejos y experiencias y a reducir los costos de fabricación. y su diseño de arte de artistas.</p>
-            <a href="http://fritzing.org/download/" class="button-tarjeta button-cmamut button-cmamut-orange">Más información</a>
-          </div>
-        </div>
-
-
         <div class="clearfix"></div>
       </div>
+    </center>
+
+    <!--Botones de BUY NOW Y WATCH TRAILER(clases cmamut y cmamut3)-->
+
+    <div id="watch-trailer">
+      <center><a href="#" class="button-cmamut button-cmamut-white">VIDEO DE PRUEBA</a></center>
+    </div>
+  </div>
+  <!--SECCION DE NOTICIAS CON VIDEOS Y BOTON DE VER TODAS LAS NOTICIAS(cmamut2)-->
+  <article1>
+    <div class="contenedor">
+      <div class="contenedor_tarjeta">
+        <a href="https://www.amazon.com/Pass-Through-Communication-Compatible-Atomic-Market/dp/B00TNOO438">
+          <figure class="tarjetas">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/61RwNwc8P9L._SL1000_.jpg" class="frontal" alt="">
+            <figcaption class="trasera">
+              <h2 class="titulo">Modulo Bluetooth HC-06</h2>
+              <hr>
+              <p>El HC-06 es un módulo Bluetooth muy usado debido a lo versátil y económico que resulta. Tiene un led incorporado que indica el estado de la conexión y si está emparejado o no en función de la velocidad del parpadeo.</p>
+            </figcaption>
+          </figure>
+        </a>
+      </div>
+
+      <div class="contenedor_tarjeta">
+        <a href="https://www.amazon.es/Tenflyer-HC-SR501-Infrarot-Bewegungsmelder-piroel%C3%83%C2%A9ctrico/dp/B016KCSUK8/ref=sr_1_10?ie=UTF8&qid=1527581385&sr=8-10&keywords=pir+sensor">
+          <figure class="tarjetas">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/41axLm8NcqL.jpg" class="frontal" alt="">
+            <figcaption class="trasera">
+              <h2 class="titulo">PIR Motion Sensor</h2>
+              <hr>
+              <p>Los sensores infrarrojos pasivos (PIR) son dispositivos para la detección de movimiento. Son baratos, pequeños, de baja potencia, y fáciles de usar.</p>
+            </figcaption>
+          </figure>
+        </a>
+      </div>
+
+      <div class="contenedor_tarjeta">
+        <a href="https://www.youtube.com/watch?v=l450fwLvy1k&t=1s">
+          <figure class="tarjetas">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/51EaDiaiQZL._SL1024_.jpg" class="frontal" alt="">
+            <figcaption class="trasera">
+              <h2 class="titulo">LCD Display de 16×2</h2>
+              <hr>
+              <p>La pantalla LCD de 16×2 es un periférico muy común, que se utiliza ampliamente en proyectos con arduino y microcontroladores en general</p>
+            </figcaption>
+          </figure>
+        </a>
+      </div>
+    </div>
+  </article1>
+
+  <!--UN TEXTO CON VARIOS PARAGRAFOS Y EL BOTON EXPLORE GAME(clase cmamut)-->
+
+  <div id="fight-future">
+    <div class="columnas">
+      <div class="tarjeta">
+        <div class="title-soft">
+          <img class="img-soft" src="http://www.techsofcolor.org/img/app-inventor-logo-200x200.png" alt="">
+        </div>
+        <p class="txt-soft">App Inventor es un entorno de desarrollo de software creado por Google Labs para la elaboración de aplicaciones destinadas al sistema operativo Android. El usuario puede, de forma visual y a partir de un conjunto de herramientas básicas, ir enlazando
+          una serie de bloques para crear la aplicación. El sistema es gratuito y se puede descargar fácilmente de la web. Las aplicaciones creadas con App Inventor están limitadas por su simplicidad, aunque permiten cubrir un gran número de necesidades
+          básicas en un dispositivo móvil.</p>
+        <a href="http://ai2.appinventor.mit.edu/" class="button-tarjeta button-cmamut button-cmamut-orange">Más información</a>
+      </div>
+    </div>
+    <div class="columnas">
+      <div class="tarjeta">
+        <div class="title-soft">
+          <img class="img-soft img-arduino" src="http://www.ticarte.com/sites/su/styles/max/public/users/380/teaser/arduino-logosvg.png?itok=lK5hbksi" alt="">
+        </div>
+        <p class="txt-soft">Arduino IDE es un entorno de desarrollo y en él se realiza la programación de cada una de las placas de Arduino. Tiene como base el entorno de Processing al igual que un lenguaje de programación fundamentado en Wiring. Pero antes de entrar a hablar
+          de IDE es esencial que tengas claro que es Arduino.</p>
+        <a href="https://www.arduino.cc/en/Main/OldSoftwareReleases" class="button-tarjeta button-cmamut button-cmamut-orange">Más información</a>
+      </div>
+    </div>
+    <div class="columnas">
+      <div class="tarjeta">
+        <div class="title-soft">
+          <img class="img-soft img-fri" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Fritzing_logo_%28new%29.png" alt="">
+        </div>
+        <p class="txt-soft">Fritzing es un programa libre de automatización de diseño electrónico que busca ayudar a diseñadores y artistas para que puedan pasar de prototipos (usando, por ejemplo, placas de pruebas) a productos finales. Fritzing fue creado bajo los principios
+          de Processing y Arduino, y permite a los diseñadores, artistas, investigadores y aficionados documentar sus prototipos basados en Arduino y crear esquemas de circuitos impresos para su posterior fabricación. Además, cuenta con un sitio web complementario
+          que ayuda a compartir y discutir bosquejos y experiencias y a reducir los costos de fabricación. y su diseño de arte de artistas.</p>
+        <a href="http://fritzing.org/download/" class="button-tarjeta button-cmamut button-cmamut-orange">Más información</a>
+      </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+  </div>
 
 
 
-    <!--EFECTO PARALLAX PARA UNA IMAGEN-->
-    <article4>
-      <div class="parallax"></div>
-    </article4>
+  <!--EFECTO PARALLAX PARA UNA IMAGEN-->
+  <article4>
+    <div class="parallax"></div>
+  </article4>
 
-    <!--FOOTER-->
+  <!--FOOTER-->
+  <footer>
+    <div id="begin-watch">
+      <div id="begin-image">
+      </div>
+      <img id="begin-title" src="img/box.png">
+      <h2 id="begin-text">Arduino Mega Starter Kit</h2>
+      <div id="begin-cmamut">
+        <a class="cmamutespecial" href="https://www.amazon.es/Conjunto-Completo-Iniciaci%C3%B3n-Controladora-Servomotor/dp/B01MQPT9OD/ref=sr_1_3/262-8257876-8998234?ie=UTF8&qid=1527617877&sr=8-3&keywords=kit+arduino+mega">Comprar KIT</a>
+      </div>
+      <div id="begin-image2">
+      </div>
+      <div class="clearfix"></div>
+    </div>
     <footer>
-      <div id="begin-watch">
-        <div id="begin-image">
-        </div>
-        <img id="begin-title" src="img/box.png">
-        <h2 id="begin-text">Arduino Mega Starter Kit</h2>
-        <div id="begin-cmamut">
-          <a class="cmamutespecial" href="https://www.amazon.es/Conjunto-Completo-Iniciaci%C3%B3n-Controladora-Servomotor/dp/B01MQPT9OD/ref=sr_1_3/262-8257876-8998234?ie=UTF8&qid=1527617877&sr=8-3&keywords=kit+arduino+mega">Comprar KIT</a>
-        </div>
-        <div id="begin-image2">
-        </div>
-        <div class="clearfix"></div>
-      </div>
-      <footer>
 
-        <!-- ESTILOS EN HTML SOCIAL MEDIA)-->
-        <div id="stay-conected">STAY CONECTED
-          <p> </p>
-          <a href="#" class="fal fa fa-facebook"></a>
-          <a href="#" class="fal fa fa-youtube"></a>
-          <a href="#" class="fal fa fa-instagram"></a>
-          <a href="#" class="fal fa fa-twitter"></a>
-        </div>
+      <!-- ESTILOS EN HTML SOCIAL MEDIA)-->
+      <div id="stay-conected">STAY CONECTED
+        <p> </p>
+        <a href="#" class="fal fa fa-facebook"></a>
+        <a href="#" class="fal fa fa-youtube"></a>
+        <a href="#" class="fal fa fa-instagram"></a>
+        <a href="#" class="fal fa fa-twitter"></a>
+      </div>
 
 </body>
+
+<script>
+  w3.includeHTML();
+</script>
+
 
 </html>
