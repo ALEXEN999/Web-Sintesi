@@ -32,6 +32,7 @@ img {
 }
 .full{
   max-height: 90em !important;
+  height: 800px !important;
 }
 .vertical3{
   max-height: 90em !important;
