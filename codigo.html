@@ -56,93 +56,44 @@
             <div class="code">
               <ol>
 
-              <li><font color="#434f54">&#47;&#47;#include &lt;SoftwareSerial.h&gt;</font></li>
+                <li><span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>setup</b></span>()</li>
+                <li>{</li>
+                <li>&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(13, <span style="color: #006699;">OUTPUT</span>);</li>
+                <li>&nbsp;&nbsp;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">begin</span>(9600);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"Enter AT commands:"</span>);</li>
+                <li>&nbsp;</li>
 
-              <li><font color="#434f54">&#47;&#47;SoftwareSerial BTserial(10,11); &#47;&#47; RX | TX</font></li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">begin</span>(9600);</li>
+                <li>}</li>
+                <li>&nbsp;<span style="color: #CC6600;">char</span> led;</li>
 
-              <li><font color="#434f54">&#47;&#47; Connect the HC-06 TX to the Arduino RX on pin 2.</font></li>
+                <li><span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>loop</b></span>()</li>
+                <li>{</li>
 
-              <li><font color="#434f54">&#47;&#47; Connect the HC-06 RX to the Arduino TX on pin 3 through a voltage divider.</font></li>
-              <li><font color="#434f54">&#47;&#47;</font></li>
-
-              <li> </li>
-
-              <li> </li>
-
-              <li><span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>setup</b></span>()</li>
-              <li>{</li>
-
-              <li>&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(13, <span style="color: #006699;">OUTPUT</span>);</li>
-
-              <li> </li>
-
-              <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">begin</span>(9600);</li>
-              <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"Enter AT commands:"</span>);</li>
-
-              <li> </li>
-
-              <li> &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; HC-06 default serial speed is 9600</font></li>
-
-              <li><font color="#434f54">&#47;&#47; &nbsp;&nbsp;&nbsp;BTserial.begin(9600); </font></li>
-              <li> &nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-              <li>}</li>
-
-              <li> <font color="#00979c">char</font> <font color="#000000">led</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Led es nuestro led conectado a Arduino</font></li>
-              <li> </li>
-
-              <li><font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font></li>
-              <li>{</li>
-              <li> </li>
-
-              <li> &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; Keep reading from HC-06 and send to Arduino Serial Monitor</font></li>
-
-              <li> &nbsp;<font color="#434f54">&#47;&#47; &nbsp;if (BTserial.available())</font></li>
-
-              <li> &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">available</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font></li>
-              <li>    {</li>
-
-              <li>       {</li>
-
-              <li> <font color="#000000">led</font><font color="#434f54">=</font><font color="#000000">(</font><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">read</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-              <li> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;a&#39;</font><font color="#000000">)</font></li>
-              <li> {</li>
-
-              <li> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-              <li> <b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;LED on&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-              <li> }</li>
-              <li> <font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;b&#39;</font><font color="#000000">)</font></li>
-
-              <li> <font color="#434f54">&#47;&#47; Siclo if para definir que se acción se ejecutara si Arduino recibe el dato &#34;b&#34; (si lo recibe el led se apaga)</font></li>
-
-              <li> {</li>
-
-              <li> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-              <li> }</li>
-
-              <li> }</li>
-
-              <li><font color="#434f54">&#47;&#47; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serial.write(BTserial.read());</font></li>
-
-              <li><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">read</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font></li>
-              <li>    }</li>
-              <li> </li>
-
-              <li> &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; Keep reading from Arduino Serial Monitor and send to HC-06</font></li>
-
-              <li> &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">available</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font></li>
-
-              <li>    {</li>
-              <li><font color="#434f54">&#47;&#47; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BTserial.write(Serial.read());</font></li>
-
-              <li><b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">read</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-              <li>    }</li>
-              <li>    {</li>
-
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (<span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">available</span>())</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+                <li>&nbsp;led=(<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">read</span>());</li>
+                <li>&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'a'</span>)</li>
+                <li>&nbsp;{</li>
+                <li>&nbsp;<span style="color: #CC6600;">digitalWrite</span>(13, <span style="color: #006699;">HIGH</span>);</li>
+                <li>&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"LED on"</span>);</li>
+                <li>&nbsp;}</li>
+                <li>&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'b'</span>)</li>
+                <li>&nbsp;{</li>
+                <li>&nbsp;<span style="color: #CC6600;">digitalWrite</span>(13, <span style="color: #006699;">LOW</span>);</li>
+                <li>&nbsp;}&nbsp;</li>
+                <li>&nbsp;}</li>
+                <li><span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">write</span>(<span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">read</span>());</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">available</span>())</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+                <li><span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">write</span>(<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">read</span>());</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;</li>
+                <li>}</li>
 
 
               </ol>
@@ -154,99 +105,85 @@
             <h2>Luces</h3>
             <div class="code">
               <ol>
-              <li><font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">SoftwareSerial</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font></li>
-              <li><b><font color="#d35400">SoftwareSerial</font></b> <font color="#000000">BT</font><font color="#000000">(</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; </font></li>
+    <li>&nbsp;&nbsp;#include&nbsp;&lt;SoftwareSerial.h&gt;</li>
+    <li>&nbsp;&nbsp;SoftwareSerial&nbsp;BT(4,2);&nbsp;</li>
+    <li>&nbsp;&nbsp;<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>setup</b></span>()</li>
+    <li>&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(13, <span style="color: #006699;">OUTPUT</span>);</li>
+    <li>&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(12, <span style="color: #006699;">OUTPUT</span>);</li>
+    <li>&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(11, <span style="color: #006699;">OUTPUT</span>);</li>
+    <li>&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(10, <span style="color: #006699;">OUTPUT</span>);</li>
+    <li>&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(9, <span style="color: #006699;">OUTPUT</span>);</li>
+    <li>&nbsp;&nbsp;BT.<span style="color: #CC6600;">begin</span>(9600);</li>
+    <li>&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;<span style="color: #CC6600;">char</span> led;</li>
+    <li>&nbsp;&nbsp;<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>loop</b></span>()</li>
+    <li>&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (BT.<span style="color: #CC6600;">available</span>())</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led=(BT.<span style="color: #CC6600;">read</span>());</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'a'</span>)</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(13, <span style="color: #006699;">HIGH</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BT.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"LED on"</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'b'</span>)</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(13, <span style="color: #006699;">LOW</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led=(BT.<span style="color: #CC6600;">read</span>());</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'c'</span>)</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(11, <span style="color: #006699;">HIGH</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BT.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"LED on"</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'d'</span>)</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(11, <span style="color: #006699;">LOW</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led=(BT.<span style="color: #CC6600;">read</span>());</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'e'</span>)</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(9, <span style="color: #006699;">HIGH</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BT.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"LED on"</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'f'</span>)</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(9, <span style="color: #006699;">LOW</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led=(BT.<span style="color: #CC6600;">read</span>());</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'g'</span>)</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(7, <span style="color: #006699;">HIGH</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BT.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"LED on"</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'h'</span>)</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(7, <span style="color: #006699;">LOW</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;led=(BT.<span style="color: #CC6600;">read</span>());</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'i'</span>)</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(5, <span style="color: #006699;">HIGH</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BT.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"LED on"</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (led==<span style="color: #006699;">'j'</span>)</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(5, <span style="color: #006699;">LOW</span>);</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+    <li>&nbsp;&nbsp;}</li>
 
-              <li><font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font></li>
-              <li><font color="#000000">{</font></li>
-               <li><font color="#434f54">&#47;&#47; Pin 13 Digital de Arduino</font></li>
-               <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;<font color="#434f54">&#47;&#47; Pin 13 Digital de Arduino</font></li>
-               <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">12</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;<font color="#434f54">&#47;&#47; Pin 13 Digital de Arduino</font></li>
-               <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">11</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;<font color="#434f54">&#47;&#47; Pin 13 Digital de Arduino</font></li>
-               <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;<font color="#434f54">&#47;&#47; Pin 13 Digital de Arduino</font></li>
-               <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">9</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li><font color="#434f54">&#47;&#47; Velocidad serial del Modulo BT</font></li>
-               <li><font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font></li>
-              <li><font color="#000000">}</font></li>
-              <li><font color="#00979c">char</font> <font color="#000000">led</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Led conectado a Arduino</font></li>
-
-
-              <li><font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font></li>
-              <li><font color="#000000">{</font></li>
-
-               <li><font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">available</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font></li>
-               <li><font color="#434f54">&#47;&#47; Es un ciclo if, lo que hace es definir la accion que se ejecutara si arduino recibe el dato &#34;a&#34; (se enecendera el LED).</font></li>
-               <li>&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">led</font><font color="#434f54">=</font><font color="#000000">(</font><font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">read</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;a&#39;</font><font color="#000000">)</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;LED on&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;b&#39;</font><font color="#000000">)</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; Es un ciclo if, lo que hace es definir la accion que se ejecutara si arduino recibe el dato &#34;b&#34; (se apagara el LED).</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Esto se puede meter en el Void Setup o en Void Loop</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;<font color="#000000">}</font></li>
-
-               <li>&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">led</font><font color="#434f54">=</font><font color="#000000">(</font><font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">read</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;c&#39;</font><font color="#000000">)</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">11</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;LED on&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;d&#39;</font><font color="#000000">)</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">11</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;&nbsp;</li>
-               <li>&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">led</font><font color="#434f54">=</font><font color="#000000">(</font><font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">read</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;e&#39;</font><font color="#000000">)</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">9</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;LED on&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;f&#39;</font><font color="#000000">)</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">9</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;&nbsp;</li>
-               <li>&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">led</font><font color="#434f54">=</font><font color="#000000">(</font><font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">read</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;g&#39;</font><font color="#000000">)</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">7</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;LED on&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;h&#39;</font><font color="#000000">)</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">7</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-
-               <li>&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">led</font><font color="#434f54">=</font><font color="#000000">(</font><font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">read</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;i&#39;</font><font color="#000000">)</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">5</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">BT</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;LED on&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">led</font><font color="#434f54">==</font><font color="#00979c">&#39;j&#39;</font><font color="#000000">)</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">5</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-
-              <li><font color="#000000">}</font></li>
             </ol>
             </div>
           </div>
@@ -255,40 +192,40 @@
             <h2>Coche</h3>
             <div class="code">
               <ol>
-              <li><font color="#00979c">int</font> <font color="#000000">tiempo</font> <font color="#434f54">=</font> <font color="#000000">100</font><font color="#000000">;</font></li>
-              <li><font color="#00979c">int</font> <font color="#000000">pin</font><font color="#000000">;</font></li>
 
-              <li><font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font></li>
-              <li><font color="#000000">{</font></li>
-               <li>&nbsp;<font color="#5e6d03">for</font><font color="#000000">(</font> <font color="#000000">pin</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font> <font color="#000000">pin</font> <font color="#434f54">&lt;=</font> <font color="#000000">6</font><font color="#000000">;</font> <font color="#000000">pin</font><font color="#434f54">++</font><font color="#000000">)</font></li>
-               <li>&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;</li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;</li>
-               <li>&nbsp;<font color="#000000">}</font></li>
-              <li><font color="#000000">}</font></li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> tiempo = 100;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> pin;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>setup</b></span>()</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">for</span>( pin = 2; pin &lt;= 6; pin++)</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(pin,<span style="color: #006699;">OUTPUT</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>loop</b></span>()</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">for</span>( pin = 2; pin &lt;= 6; pin++)</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(pin,<span style="color: #006699;">OUTPUT</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(pin,<span style="color: #006699;">HIGH</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(tiempo);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(pin,<span style="color: #006699;">LOW</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">for</span>( pin = 6; pin &gt;= 2; pin--)</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(pin,<span style="color: #006699;">OUTPUT</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(pin,<span style="color: #006699;">HIGH</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(tiempo);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(pin,<span style="color: #006699;">LOW</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
 
-              <li><font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font></li>
-              <li><font color="#000000">{</font></li>
-               <li><font color="#5e6d03">for</font><font color="#000000">(</font> <font color="#000000">pin</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font> <font color="#000000">pin</font> <font color="#434f54">&lt;=</font> <font color="#000000">6</font><font color="#000000">;</font> <font color="#000000">pin</font><font color="#434f54">++</font><font color="#000000">)</font></li>
-               <li>&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;</li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">tiempo</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;</li>
-               <li>&nbsp;<font color="#5e6d03">for</font><font color="#000000">(</font> <font color="#000000">pin</font> <font color="#434f54">=</font> <font color="#000000">6</font><font color="#000000">;</font> <font color="#000000">pin</font> <font color="#434f54">&gt;=</font> <font color="#000000">2</font><font color="#000000">;</font> <font color="#000000">pin</font><font color="#434f54">--</font><font color="#000000">)</font></li>
-               <li>&nbsp;<font color="#000000">{</font></li>
-               <li>&nbsp;&nbsp;&nbsp;</li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">tiempo</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-               <li>&nbsp;<font color="#000000">}</font></li>
-               <li>&nbsp;</li>
-              <li><font color="#000000">}</font></li>
             </ol>
             </div>
           </div>
@@ -297,57 +234,41 @@
             <h2>Ultrasonic Sensor</h3>
             <div class="code">
               <ol>
-                <li><font color="#434f54">&#47;&#47; defines pins numbers</font></li>
-                <li><font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">trigPin</font> <font color="#434f54">=</font> <font color="#000000">52</font><font color="#000000">;</font></li>
-                <li><font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">echoPin</font> <font color="#434f54">=</font> <font color="#000000">53</font><font color="#000000">;</font></li>
-                <li><font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">buzzer</font> <font color="#434f54">=</font> <font color="#000000">50</font><font color="#000000">;</font></li>
-                <li><font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">ledPin</font> <font color="#434f54">=</font> <font color="#000000">51</font><font color="#000000">;</font></li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">const</span> <span style="color: #CC6600;">int</span> trigPin = 52;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">const</span> <span style="color: #CC6600;">int</span> echoPin = 53;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">const</span> <span style="color: #CC6600;">int</span> buzzer = 50;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">const</span> <span style="color: #CC6600;">int</span> ledPin = 51;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">long</span> duration;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> distance;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> safetyDistance;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>setup</b></span>() {</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(trigPin, <span style="color: #006699;">OUTPUT</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(echoPin, <span style="color: #006699;">INPUT</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(buzzer, <span style="color: #006699;">OUTPUT</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(ledPin, <span style="color: #006699;">OUTPUT</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">begin</span>(9600);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>loop</b></span>() {</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(trigPin, <span style="color: #006699;">LOW</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delayMicroseconds</span>(2);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(trigPin, <span style="color: #006699;">HIGH</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delayMicroseconds</span>(10);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(trigPin, <span style="color: #006699;">LOW</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;duration&nbsp;=&nbsp;<span style="color: #CC6600;">pulseIn</span>(echoPin, <span style="color: #006699;">HIGH</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;distance=&nbsp;duration*0.034/2;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;safetyDistance&nbsp;=&nbsp;distance;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (safetyDistance &lt;= 5){</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(buzzer, <span style="color: #006699;">HIGH</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(ledPin, <span style="color: #006699;">HIGH</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">else</span>{</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(buzzer, <span style="color: #006699;">LOW</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(ledPin, <span style="color: #006699;">LOW</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"Distance: "</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(distance);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
 
-                <li><font color="#434f54">&#47;&#47; defines variables</font></li>
-                <li><font color="#00979c">long</font> <font color="#000000">duration</font><font color="#000000">;</font></li>
-                <li><font color="#00979c">int</font> <font color="#000000">distance</font><font color="#000000">;</font></li>
-                <li><font color="#00979c">int</font> <font color="#000000">safetyDistance</font><font color="#000000">;</font></li>
-
-
-                <li><font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font></li>
-                <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">trigPin</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Sets the trigPin as an Output</font></li>
-                <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">echoPin</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Sets the echoPin as an Input</font></li>
-                <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">ledPin</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                <li><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Starts the serial communication</font></li>
-                <li><font color="#000000">}</font></li>
-
-
-                <li><font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font></li>
-                <li><font color="#434f54">&#47;&#47; Clears the trigPin</font></li>
-                <li><font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trigPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                <li><font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-                <li><font color="#434f54">&#47;&#47; Sets the trigPin on HIGH state for 10 micro seconds</font></li>
-                <li><font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trigPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                <li><font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">10</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                <li><font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trigPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-                <li><font color="#434f54">&#47;&#47; Reads the echoPin, returns the sound wave travel time in microseconds</font></li>
-                <li><font color="#000000">duration</font> <font color="#434f54">=</font> <font color="#d35400">pulseIn</font><font color="#000000">(</font><font color="#000000">echoPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-                <li><font color="#434f54">&#47;&#47; Calculating the distance</font></li>
-                <li><font color="#000000">distance</font><font color="#434f54">=</font> <font color="#000000">duration</font><font color="#434f54">*</font><font color="#000000">0.034</font><font color="#434f54">&#47;</font><font color="#000000">2</font><font color="#000000">;</font></li>
-
-                <li><font color="#000000">safetyDistance</font> <font color="#434f54">=</font> <font color="#000000">distance</font><font color="#000000">;</font></li>
-                <li><font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">safetyDistance</font> <font color="#434f54">&lt;=</font> <font color="#000000">5</font><font color="#000000">)</font><font color="#000000">{</font></li>
-                 <li>&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                 <li>&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">ledPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                <li><font color="#000000">}</font></li>
-                <li><font color="#5e6d03">else</font><font color="#000000">{</font></li>
-                 <li>&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                 <li>&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">ledPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                <li><font color="#000000">}</font></li>
-
-                <li><font color="#434f54">&#47;&#47; Prints the distance on the Serial Monitor</font></li>
-                <li><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Distance: &#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                <li><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">distance</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                <li><font color="#000000">}</font></li>
               </ol>
             </div>
           </div>
@@ -356,34 +277,65 @@
             <h2>PIR Sensor</h2>
             <div class="code">
               <ol>
-                <li><font color="#434f54">&#47;&#47;the time we give the sensor to calibrate (10-60 secs according to the datasheet)</font></li>
-                <li><font color="#00979c">int</font> <font color="#000000">calibrationTime</font> <font color="#434f54">=</font> <font color="#000000">30</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li><span style="color: #CC6600;">int</span> calibrationTime = 30;        </li>
 
-                <li><font color="#434f54">&#47;&#47;the time when the sensor outputs a low impulse</font></li>
-                <li><font color="#00979c">long</font> <font color="#00979c">unsigned</font> <font color="#00979c">int</font> <font color="#000000">lowIn</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li><span style="color: #CC6600;">long</span> <span style="color: #CC6600;">unsigned</span> <span style="color: #CC6600;">int</span> lowIn;         </li>
 
-                <li><font color="#434f54">&#47;&#47;the amount of milliseconds the sensor has to be low</font></li>
-                <li><font color="#434f54">&#47;&#47;before we assume all motion has stopped</font></li>
-                <li><font color="#00979c">long</font> <font color="#00979c">unsigned</font> <font color="#00979c">int</font> <font color="#000000">pause</font> <font color="#434f54">=</font> <font color="#000000">5000</font><font color="#000000">;</font> </li>
+                <li><span style="color: #CC6600;">long</span> <span style="color: #CC6600;">unsigned</span> <span style="color: #CC6600;">int</span> pause = 5000;  </li>
 
-                <li><font color="#00979c">boolean</font> <font color="#000000">lockLow</font> <font color="#434f54">=</font> <font color="#00979c">true</font><font color="#000000">;</font></li>
-                <li><font color="#00979c">boolean</font> <font color="#000000">takeLowTime</font><font color="#000000">;</font> </li>
+                <li><span style="color: #CC6600;">boolean</span> lockLow = <span style="color: #CC6600;">true</span>;</li>
+                <li><span style="color: #CC6600;">boolean</span> takeLowTime;  </li>
 
-                <li><font color="#00979c">int</font> <font color="#000000">pirPin</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;the digital pin connected to the PIR sensor&#39;s output</font></li>
-                <li><font color="#00979c">int</font> <font color="#000000">ledPin</font> <font color="#434f54">=</font> <font color="#000000">13</font><font color="#000000">;</font></li>
+                <li><span style="color: #CC6600;">int</span> pirPin = 3;</li>
+                <li><span style="color: #CC6600;">int</span> ledPin = 13;</li>
 
+                <li><span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>setup</b></span>(){</li>
+                <li>&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">begin</span>(9600);</li>
+                <li>&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(pirPin, <span style="color: #006699;">INPUT</span>);</li>
+                <li>&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(ledPin, <span style="color: #006699;">OUTPUT</span>);</li>
+                <li>&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(pirPin, <span style="color: #006699;">LOW</span>);</li>
 
-                <li><font color="#434f54">&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;</font></li>
-                <li><font color="#434f54">&#47;&#47;SETUP</font></li>
-                <li><font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font></li>
-                 <li>&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                 <li>&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">pirPin</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                 <li>&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">ledPin</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                 <li>&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pirPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
+                <li>&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"calibrating sensor "</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">for</span>(<span style="color: #CC6600;">int</span> i = 0; i &lt; calibrationTime; i++){</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"."</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(1000);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">" done"</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"SENSOR ACTIVE"</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(50);</li>
+                <li>&nbsp;&nbsp;}</li>
 
-                 <li>&nbsp;<font color="#434f54">&#47;&#47;give the sensor some time to calibrate</font></li>
-                 <li>&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;calibrating sensor &#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                 <li>&nbsp;&nbsp;&nbsp;</li>
+                <li><span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>loop</b></span>(){</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(<span style="color: #CC6600;">digitalRead</span>(pirPin) == <span style="color: #006699;">HIGH</span>){</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(ledPin, <span style="color: #006699;">HIGH</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(lockLow){  </li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lockLow&nbsp;=&nbsp;<span style="color: #CC6600;">false</span>;            </li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"---"</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"motion detected at "</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #CC6600;">millis</span>()/1000);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">" sec"</span>); </li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(50);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;takeLowTime&nbsp;=&nbsp;<span style="color: #CC6600;">true</span>;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(<span style="color: #CC6600;">digitalRead</span>(pirPin) == <span style="color: #006699;">LOW</span>){       </li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(ledPin, <span style="color: #006699;">LOW</span>);  </li>
+
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(takeLowTime){</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lowIn&nbsp;=&nbsp;<span style="color: #CC6600;">millis</span>();          </li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;takeLowTime&nbsp;=&nbsp;<span style="color: #CC6600;">false</span>;       </li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(!lockLow &amp;&amp; <span style="color: #CC6600;">millis</span>() - lowIn &gt; pause){   </li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lockLow&nbsp;=&nbsp;<span style="color: #CC6600;">true</span>;                        </li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"motion ended at "</span>);      &#161;</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>((<span style="color: #CC6600;">millis</span>() - pause)/1000);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">" sec"</span>);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(50);</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                <li>&nbsp;&nbsp;}</li>
+
                </ol>
              </div>
            </div>
@@ -391,266 +343,203 @@
                  <h2>Todos los códigos juntos</h2>
                  <div class="code">
                    <ol>
-                     <li><font color="#00979c">char</font> <font color="#000000">data</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;</li>
-                     <li><font color="#00979c">int</font> <font color="#000000">tiempo</font> <font color="#434f54">=</font> <font color="#000000">100</font><font color="#000000">;</font></li>
-                     <li><font color="#00979c">int</font> <font color="#000000">pin</font><font color="#000000">;</font></li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">char</span> data = 0;     </li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> tiempo = 100;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> pin;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">const</span> <span style="color: #CC6600;">int</span> trigPin = 52;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">const</span> <span style="color: #CC6600;">int</span> echoPin = 53;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">const</span> <span style="color: #CC6600;">int</span> buzzer = 50;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">const</span> <span style="color: #CC6600;">int</span> ledPin = 51;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">long</span> duration;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> distance;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> safetyDistance;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> calibrationTime = 30;        </li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">long</span> <span style="color: #CC6600;">unsigned</span> <span style="color: #CC6600;">int</span> lowIn;         </li>
 
-                     <li><font color="#434f54">&#47;&#47; defines pins numbers</font></li>
-                     <li><font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">trigPin</font> <font color="#434f54">=</font> <font color="#000000">52</font><font color="#000000">;</font></li>
-                     <li><font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">echoPin</font> <font color="#434f54">=</font> <font color="#000000">53</font><font color="#000000">;</font></li>
-                     <li><font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">buzzer</font> <font color="#434f54">=</font> <font color="#000000">50</font><font color="#000000">;</font></li>
-                     <li><font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">ledPin</font> <font color="#434f54">=</font> <font color="#000000">51</font><font color="#000000">;</font></li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">long</span> <span style="color: #CC6600;">unsigned</span> <span style="color: #CC6600;">int</span> pause = 5000;  </li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">boolean</span> lockLow = <span style="color: #CC6600;">true</span>;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">boolean</span> takeLowTime;  </li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> pirPin1 = 40; </li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> ledPin1 = 41;</li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>setup</b></span>() {</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">begin</span>(9600);</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(12, <span style="color: #006699;">OUTPUT</span>);</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(11, <span style="color: #006699;">OUTPUT</span>);</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(10, <span style="color: #006699;">OUTPUT</span>);</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(9, <span style="color: #006699;">OUTPUT</span>);</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(8, <span style="color: #006699;">OUTPUT</span>);</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">for</span>( pin = 2; pin &lt;= 6; pin++)</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(pin,<span style="color: #006699;">OUTPUT</span>);</li>
+                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(trigPin, <span style="color: #006699;">OUTPUT</span>);</li>
+                          <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(echoPin, <span style="color: #006699;">INPUT</span>);</li>
+                          <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(buzzer, <span style="color: #006699;">OUTPUT</span>);</li>
+                          <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(ledPin, <span style="color: #006699;">OUTPUT</span>);</li>
+                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(<span style="color: #CC6600;">digitalRead</span>(pirPin1) == <span style="color: #006699;">HIGH</span>){</li>
+                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(ledPin1, <span style="color: #006699;">HIGH</span>); </li>
+                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(lockLow){  </li>
+                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lockLow&nbsp;=&nbsp;<span style="color: #CC6600;">false</span>;            </li>
+                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"---"</span>);</li>
+                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"motion detected at "</span>);</li>
+                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #CC6600;">millis</span>()/1000);</li>
+                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">" sec"</span>);</li>
+                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(50);</li>
+                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;takeLowTime&nbsp;=&nbsp;<span style="color: #CC6600;">true</span>;</li>
+                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(<span style="color: #CC6600;">digitalRead</span>(pirPin1) == <span style="color: #006699;">LOW</span>){       </li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(ledPin1, <span style="color: #006699;">LOW</span>); </li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(takeLowTime){</li>
+                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lowIn&nbsp;=&nbsp;<span style="color: #CC6600;">millis</span>(); </li>
+                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;takeLowTime&nbsp;=&nbsp;<span style="color: #CC6600;">false</span>; </li>
+                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
 
-                     <li><font color="#434f54">&#47;&#47; defines variables</font></li>
-                     <li><font color="#00979c">long</font> <font color="#000000">duration</font><font color="#000000">;</font></li>
-                     <li><font color="#00979c">int</font> <font color="#000000">distance</font><font color="#000000">;</font></li>
-                     <li><font color="#00979c">int</font> <font color="#000000">safetyDistance</font><font color="#000000">;</font></li>
+                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(!lockLow &amp;&amp; <span style="color: #CC6600;">millis</span>() - lowIn &gt; pause) color=<span style="color: #006699;">"#000000"</span>&gt;{  </li>
 
-                     <font color="#434f54">&#47;&#47;PIR</font>
-                     <li><font color="#00979c">int</font> <font color="#000000">calibrationTime</font> <font color="#434f54">=</font> <font color="#000000">30</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lockLow&nbsp;=&nbsp;<span style="color: #CC6600;">true</span>;                        </li>
+                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"motion ended at "</span>); </li>
+                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>((<span style="color: #CC6600;">millis</span>() - pause)/ color=<span style="color: #006699;">"#000000"</span>&gt;1000);</li>
+                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">" sec"</span>);</li>
+                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(50);</li>
+                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
 
-                     <li><font color="#434f54">&#47;&#47;the time when the sensor outputs a low impulse</font></li>
-                     <li><font color="#00979c">long</font> <font color="#00979c">unsigned</font> <font color="#00979c">int</font> <font color="#000000">lowIn</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>loop</b></span>() {</li>
+                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">for</span>( pin = 2; pin &lt;= 6; pin++)</li>
+                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'k'</span>) {</li>
+                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(pin,<span style="color: #006699;">OUTPUT</span>);</li>
+                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(pin, <span style="color: #006699;">HIGH</span>);</li>
+                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(tiempo);</li>
+                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(pin,<span style="color: #006699;">LOW</span>);</li>
+                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">for</span>( pin = 6; pin &gt;= 2; pin--)</li>
+                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'k'</span>) {</li>
+                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(pin,<span style="color: #006699;">OUTPUT</span>);</li>
+                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(pin, <span style="color: #006699;">HIGH</span>);</li>
+                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(tiempo);</li>
+                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(pin,<span style="color: #006699;">LOW</span>);</li>
+                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">for</span>( pin = 6; pin &lt;= 2; pin--)</li>
+                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</li>
+                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'l'</span>) {  </li>
+                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(pin,<span style="color: #006699;">OUTPUT</span>);</li>
+                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(pin, <span style="color: #006699;">LOW</span>);  </li>
+                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(tiempo);</li>
+                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(pin,<span style="color: #006699;">LOW</span>);</li>
+                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(<span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">available</span>() &gt; 0)  {</li>
+                                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;=&nbsp;<span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">read</span>();      </li>
+                                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'a'</span>) {           </li>
+                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(12, <span style="color: #006699;">HIGH</span>);</li>
+                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'b'</span>) {      </li>
+                                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(12, <span style="color: #006699;">LOW</span>);  </li>
+                                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'A'</span>) {</li>
+                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> valor=<span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">parseInt</span>();</li>
+                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">analogWrite</span>(12,valor);</li>
+                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'c'</span>) {           </li>
+                                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(11, <span style="color: #006699;">HIGH</span>);</li>
+                                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'d'</span>) {      </li>
+                                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(11, <span style="color: #006699;">LOW</span>);  </li>
+                                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'B'</span>) {</li>
+                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> valor=<span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">parseInt</span>(); </li>
+                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">analogWrite</span>(11,valor);</li>
+                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'e'</span>) {           </li>
+                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(10, <span style="color: #006699;">HIGH</span>);</li>
+                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'f'</span>) {      </li>
+                                                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(10, <span style="color: #006699;">LOW</span>);  </li>
+                                                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'C'</span>) {</li>
+                                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> valor=<span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">parseInt</span>(); </li>
+                                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">analogWrite</span>(10,valor);</li>
+                                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'g'</span>) {           </li>
+                                                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(9, <span style="color: #006699;">HIGH</span>);</li>
+                                                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'h'</span>) {      </li>
+                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(9, <span style="color: #006699;">LOW</span>);  </li>
+                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'D'</span>) {</li>
+                                                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> valor=<span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">parseInt</span>(); <span style="color: #7E7E7E;">// </span></li>
+                                                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">analogWrite</span>(9,valor);</li>
+                                                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'i'</span>) {           </li>
+                                                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(8, <span style="color: #006699;">HIGH</span>);</li>
+                                                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'j'</span>) {      </li>
+                                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(8, <span style="color: #006699;">LOW</span>);  </li>
+                                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(data == <span style="color: #006699;">'F'</span>) {</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">int</span> valor=<span style="color: #CC6600;"><b>Serial1</b></span>.<span style="color: #CC6600;">parseInt</span>(); </li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">analogWrite</span>(8,valor);</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(trigPin, <span style="color: #006699;">LOW</span>);</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delayMicroseconds</span>(2);</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(trigPin, <span style="color: #006699;">HIGH</span>);</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delayMicroseconds</span>(10);</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(trigPin, <span style="color: #006699;">LOW</span>);</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;duration&nbsp;=&nbsp;<span style="color: #CC6600;">pulseIn</span>(echoPin, <span style="color: #006699;">HIGH</span>);</li>
 
-                     <li><font color="#434f54">&#47;&#47;the amount of milliseconds the sensor has to be low </font></li>
-                     <li><font color="#434f54">&#47;&#47;before we assume all motion has stopped</font></li>
-                     <li><font color="#00979c">long</font> <font color="#00979c">unsigned</font> <font color="#00979c">int</font> <font color="#000000">pause</font> <font color="#434f54">=</font> <font color="#000000">5000</font><font color="#000000">;</font> &nbsp;</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;distance=&nbsp;duration*0.034/2;</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;safetyDistance&nbsp;=&nbsp;distance;</li>
+                                                                                  <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (safetyDistance &lt;= 5){</li>
+                                                                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(buzzer, <span style="color: #006699;">HIGH</span>);</li>
+                                                                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(ledPin, <span style="color: #006699;">HIGH</span>);</li>
+                                                                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                                                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">else</span>{</li>
+                                                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(buzzer, <span style="color: #006699;">LOW</span>);</li>
+                                                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(ledPin, <span style="color: #006699;">LOW</span>);</li>
+                                                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"Distance: "</span>);</li>
+                                                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(distance);</li>
+                                                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">//PIR</span></li>
+                                                                                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(<span style="color: #CC6600;">digitalRead</span>(pirPin1) == <span style="color: #006699;">HIGH</span>){</li>
+                                                                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(ledPin1, <span style="color: #006699;">HIGH</span>);  </li>
+                                                                                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(lockLow){  </li>
+                                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lockLow&nbsp;=&nbsp;<span style="color: #CC6600;">false</span>;            </li>
+                                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"---"</span>);</li>
+                                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"motion detected at "</span>);</li>
+                                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #CC6600;">millis</span>()/1000);</li>
+                                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">" sec"</span>);</li>
+                                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(50);</li>
+                                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;takeLowTime&nbsp;=&nbsp;<span style="color: #CC6600;">true</span>;</li>
+                                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                                                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(<span style="color: #CC6600;">digitalRead</span>(pirPin1) == <span style="color: #006699;">LOW</span>){       </li>
+                                                                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(ledPin1, <span style="color: #006699;">LOW</span>);</li>
+                                                                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(takeLowTime){</li>
+                                                                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lowIn&nbsp;=&nbsp;<span style="color: #CC6600;">millis</span>();   </li>
+                                                                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;takeLowTime&nbsp;=&nbsp;<span style="color: #CC6600;">false</span>; </li>
+                                                                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
 
-                     <li><font color="#00979c">boolean</font> <font color="#000000">lockLow</font> <font color="#434f54">=</font> <font color="#00979c">true</font><font color="#000000">;</font></li>
-                     <li><font color="#00979c">boolean</font> <font color="#000000">takeLowTime</font><font color="#000000">;</font> &nbsp;</li>
+                                                                                              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(!lockLow &amp;&amp; <span style="color: #CC6600;">millis</span>() - lowIn &gt; pause) color=<span style="color: #006699;">"#000000"</span>&gt;{  </li>
 
-                     <li><font color="#00979c">int</font> <font color="#000000">pirPin1</font> <font color="#434f54">=</font> <font color="#000000">40</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;the digital pin connected to the PIR sensor&#39;s output</font></li>
-                     <li><font color="#00979c">int</font> <font color="#000000">ledPin1</font> <font color="#434f54">=</font> <font color="#000000">41</font><font color="#000000">;</font></li>
+                                                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lockLow&nbsp;=&nbsp;<span style="color: #CC6600;">true</span>;                        </li>
+                                                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"motion ended at "</span>); </li>
+                                                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>((<span style="color: #CC6600;">millis</span>() - pause)/ color=<span style="color: #006699;">"#000000"</span>&gt;1000);</li>
+                                                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">" sec"</span>);</li>
+                                                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(50);</li>
+                                                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+                                                                                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs<li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
 
-
-                     <li><font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Conexión del Arduino con el Bluetooth (MIRAR QUE SEAN LOS PINES CORRECTOS)</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">12</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">11</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">9</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">8</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#5e6d03">for</font><font color="#000000">(</font> <font color="#000000">pin</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font> <font color="#000000">pin</font> <font color="#434f54">&lt;=</font> <font color="#000000">6</font><font color="#000000">;</font> <font color="#000000">pin</font><font color="#434f54">++</font><font color="#000000">)</font></li>
-                      <li>&nbsp;<font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">trigPin</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Sets the trigPin as an Output</font></li>
-                     <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">echoPin</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Sets the echoPin as an Input</font></li>
-                     <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                     <li><font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">ledPin</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">pirPin1</font><font color="#000000">)</font> <font color="#434f54">==</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">ledPin1</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;<font color="#434f54">&#47;&#47;the led visualizes the sensors output pin state</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">lockLow</font><font color="#000000">)</font><font color="#000000">{</font> &nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;makes sure we wait for a transition to LOW before any further output is made:</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lockLow</font> <font color="#434f54">=</font> <font color="#00979c">false</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;---&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;motion detected at &#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#d35400">millis</font><font color="#000000">(</font><font color="#000000">)</font><font color="#434f54">&#47;</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34; sec&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">50</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">takeLowTime</font> <font color="#434f54">=</font> <font color="#00979c">true</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">pirPin1</font><font color="#000000">)</font> <font color="#434f54">==</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">ledPin1</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;<font color="#434f54">&#47;&#47;the led visualizes the sensors output pin state</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">takeLowTime</font><font color="#000000">)</font><font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lowIn</font> <font color="#434f54">=</font> <font color="#d35400">millis</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;save the time of the transition from high to LOW</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">takeLowTime</font> <font color="#434f54">=</font> <font color="#00979c">false</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;make sure this is only done at the start of a LOW phase</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;if the sensor is low for more than the given pause, </font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;we assume that no more motion is going to happen</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#434f54">!</font><font color="#000000">lockLow</font> <font color="#434f54">&amp;&amp;</font> <font color="#d35400">millis</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">-</font> <font color="#000000">lowIn</font> <font color="#434f54">&gt;</font> <font color="#000000">pause</font><font color="#000000">)</font><font</li> color="#000000">{</font> &nbsp;
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;makes sure this block of code is only executed again after </font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;a new motion sequence has been detected</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lockLow</font> <font color="#434f54">=</font> <font color="#00979c">true</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;motion ended at &#34;</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;output</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">(</font><font color="#d35400">millis</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">-</font> <font color="#000000">pause</font><font color="#000000">)</font><font color="#434f54">&#47;</font><font</li> color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34; sec&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">50</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-
-                     <li><font color="#000000">}</font></li>
-
-                     <li><font color="#434f54">&#47;&#47;PIR</font></li>
-
-
-                     <li><font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font></li>
-                      <li>&nbsp;</li>
-                      <li>&nbsp;&nbsp;<font color="#5e6d03">for</font><font color="#000000">(</font> <font color="#000000">pin</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font> <font color="#000000">pin</font> <font color="#434f54">&lt;=</font> <font color="#000000">6</font><font color="#000000">;</font> <font color="#000000">pin</font><font color="#434f54">++</font><font color="#000000">)</font></li>
-                      <li>&nbsp;<font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;k&#39;</font><font color="#000000">)</font> <font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">tiempo</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">for</font><font color="#000000">(</font> <font color="#000000">pin</font> <font color="#434f54">=</font> <font color="#000000">6</font><font color="#000000">;</font> <font color="#000000">pin</font> <font color="#434f54">&gt;=</font> <font color="#000000">2</font><font color="#000000">;</font> <font color="#000000">pin</font><font color="#434f54">--</font><font color="#000000">)</font></li>
-                      <li>&nbsp;<font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;k&#39;</font><font color="#000000">)</font> <font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">tiempo</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;<font color="#5e6d03">for</font><font color="#000000">(</font> <font color="#000000">pin</font> <font color="#434f54">=</font> <font color="#000000">6</font><font color="#000000">;</font> <font color="#000000">pin</font> <font color="#434f54">&lt;=</font> <font color="#000000">2</font><font color="#000000">;</font> <font color="#000000">pin</font><font color="#434f54">--</font><font color="#000000">)</font></li>
-                      <li>&nbsp;<font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;l&#39;</font><font color="#000000">)</font> <font color="#000000">{</font> &nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">tiempo</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pin</font><font color="#434f54">,</font><font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;&nbsp;<font color="#434f54">&#47;&#47;Recibo lo que se haya enviado y actúo en consecuencia (es decir, enciendo el LED). Esta es la parte importante a probar y mantener</font></li>
-                      <li>&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">available</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">&gt;</font> <font color="#000000">0</font><font color="#000000">)</font> &nbsp;<font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">data</font> <font color="#434f54">=</font> <b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">read</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#95a5a6">&#47;*LUCES NORMALES*&#47;</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;a&#39;</font><font color="#000000">)</font> <font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">12</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;b&#39;</font><font color="#000000">)</font> <font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">12</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;A&#39;</font><font color="#000000">)</font> <font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">valor</font><font color="#434f54">=</font><b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">parseInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Leer todas las cifras hasta completar el valor entero</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">12</font><font color="#434f54">,</font><font color="#000000">valor</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> &nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;c&#39;</font><font color="#000000">)</font> <font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">11</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;d&#39;</font><font color="#000000">)</font> <font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">11</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;B&#39;</font><font color="#000000">)</font> <font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">valor</font><font color="#434f54">=</font><b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">parseInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Leer todas las cifras hasta completar el valor entero</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">11</font><font color="#434f54">,</font><font color="#000000">valor</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;e&#39;</font><font color="#000000">)</font> <font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;f&#39;</font><font color="#000000">)</font> <font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;C&#39;</font><font color="#000000">)</font> <font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">valor</font><font color="#434f54">=</font><b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">parseInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Leer todas las cifras hasta completar el valor entero</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font><font color="#000000">valor</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;g&#39;</font><font color="#000000">)</font> <font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">9</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;h&#39;</font><font color="#000000">)</font> <font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">9</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;D&#39;</font><font color="#000000">)</font> <font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">valor</font><font color="#434f54">=</font><b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">parseInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Leer todas las cifras hasta completar el valor entero</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">9</font><font color="#434f54">,</font><font color="#000000">valor</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;i&#39;</font><font color="#000000">)</font> <font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">8</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;j&#39;</font><font color="#000000">)</font> <font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">8</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">data</font> <font color="#434f54">==</font> <font color="#00979c">&#39;F&#39;</font><font color="#000000">)</font> <font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">valor</font><font color="#434f54">=</font><b><font color="#d35400">Serial1</font></b><font color="#434f54">.</font><font color="#d35400">parseInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Leer todas las cifras hasta completar el valor entero</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">8</font><font color="#434f54">,</font><font color="#000000">valor</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#95a5a6">&#47;*</font></li>
-                     <li><font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else if(data == &#39;c&#39;) {</font></li>
-                     <li><font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></li>
-                     <li><font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (int brightness = 0; brightness &lt; 255; brightness++) {</font></li>
-                     <li><font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;analogWrite(12, brightness);</font></li>
-                     <li><font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay(2);</font></li>
-                     <li><font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</font></li>
-                     <li><font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (int brightness = 255; brightness &gt; 0; brightness--) {</font></li>
-                     <li><font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;analogWrite(12, brightness);</font></li>
-                     <li><font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay(2);</font></li>
-                     <li><font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</font></li>
-                     <li><font color="#95a5a6"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&#47;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#95a5a6">&#47;*LUCES COCHE*&#47;</font></li>
-
-                      <li>&nbsp;&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;&nbsp;<font color="#434f54">&#47;&#47; Clears the trigPin</font></li>
-                     <li><font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trigPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                     <li><font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-                     <li><font color="#434f54">&#47;&#47; Sets the trigPin on HIGH state for 10 micro seconds</font></li>
-                     <li><font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trigPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                     <li><font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">10</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                     <li><font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trigPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-                     <li><font color="#434f54">&#47;&#47; Reads the echoPin, returns the sound wave travel time in microseconds</font></li>
-                     <li><font color="#000000">duration</font> <font color="#434f54">=</font> <font color="#d35400">pulseIn</font><font color="#000000">(</font><font color="#000000">echoPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-                     <li><font color="#434f54">&#47;&#47; Calculating the distance</font></li>
-                     <li><font color="#000000">distance</font><font color="#434f54">=</font> <font color="#000000">duration</font><font color="#434f54">*</font><font color="#000000">0.034</font><font color="#434f54">&#47;</font><font color="#000000">2</font><font color="#000000">;</font></li>
-
-                     <li><font color="#000000">safetyDistance</font> <font color="#434f54">=</font> <font color="#000000">distance</font><font color="#000000">;</font></li>
-                     <li><font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">safetyDistance</font> <font color="#434f54">&lt;=</font> <font color="#000000">5</font><font color="#000000">)</font><font color="#000000">{</font></li>
-                      <li>&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">ledPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                     <li><font color="#000000">}</font></li>
-                     <li><font color="#5e6d03">else</font><font color="#000000">{</font></li>
-                      <li>&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">ledPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                     <li><font color="#000000">}</font></li>
-
-                     <li><font color="#434f54">&#47;&#47; Prints the distance on the Serial Monitor</font></li>
-                     <li><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Distance: &#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                     <li><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">distance</font><font color="#000000">)</font><font color="#000000">;</font></li>
-
-                     <li><font color="#434f54">&#47;&#47;PIR</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">pirPin1</font><font color="#000000">)</font> <font color="#434f54">==</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">ledPin1</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;<font color="#434f54">&#47;&#47;the led visualizes the sensors output pin state</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">lockLow</font><font color="#000000">)</font><font color="#000000">{</font> &nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;makes sure we wait for a transition to LOW before any further output is made:</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lockLow</font> <font color="#434f54">=</font> <font color="#00979c">false</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;---&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;motion detected at &#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#d35400">millis</font><font color="#000000">(</font><font color="#000000">)</font><font color="#434f54">&#47;</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34; sec&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">50</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">takeLowTime</font> <font color="#434f54">=</font> <font color="#00979c">true</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">pirPin1</font><font color="#000000">)</font> <font color="#434f54">==</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">ledPin1</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;<font color="#434f54">&#47;&#47;the led visualizes the sensors output pin state</font></li>
-
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">takeLowTime</font><font color="#000000">)</font><font color="#000000">{</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lowIn</font> <font color="#434f54">=</font> <font color="#d35400">millis</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;save the time of the transition from high to LOW</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">takeLowTime</font> <font color="#434f54">=</font> <font color="#00979c">false</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;make sure this is only done at the start of a LOW phase</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;if the sensor is low for more than the given pause, </font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;we assume that no more motion is going to happen</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#434f54">!</font><font color="#000000">lockLow</font> <font color="#434f54">&amp;&amp;</font> <font color="#d35400">millis</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">-</font> <font color="#000000">lowIn</font> <font color="#434f54">&gt;</font> <font color="#000000">pause</font><font color="#000000">)</font><font</li> color="#000000">{</font> &nbsp;
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;makes sure this block of code is only executed again after </font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;a new motion sequence has been detected</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lockLow</font> <font color="#434f54">=</font> <font color="#00979c">true</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;motion ended at &#34;</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;output</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">(</font><font color="#d35400">millis</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">-</font> <font color="#000000">pause</font><font color="#000000">)</font><font color="#434f54">&#47;</font><font</li> color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34; sec&#34;</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">50</font><font color="#000000">)</font><font color="#000000">;</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font></li>
-                     <li><font color="#000000">}</font></li>
               </ol>
             </div>
           </div>
